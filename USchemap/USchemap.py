@@ -40,8 +40,9 @@ class USchemap(EObject, metaclass=MetaEClass):
 class Feature(EObject, metaclass=MetaEClass):
 
     name = EAttribute(eType=EString, unique=True, derived=False, changeable=True)
+    owner = EReference(ordered=True, unique=True, containment=False, derived=False)
 
-    def __init__(self, *, name=None):
+    def __init__(self, *, name=None, owner=None):
         # if kwargs:
         #    raise AttributeError('unexpected arguments: {}'.format(kwargs))
 
@@ -49,6 +50,9 @@ class Feature(EObject, metaclass=MetaEClass):
 
         if name is not None:
             self.name = name
+
+        if owner is not None:
+            self.owner = owner
 
 
 @abstract

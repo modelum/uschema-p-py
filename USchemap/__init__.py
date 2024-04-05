@@ -1,4 +1,4 @@
-from pyecore.resources import global_registry
+
 from .USchemap import getEClassifier, eClassifiers
 from .USchemap import name, nsURI, nsPrefix, eClass
 from .USchemap import USchemap, EntityType, Feature, Attribute, DataType, PList, Reference, Aggregate, PrimitiveType, Null, RelationshipType, SchemaType, PMap, PSet, PTuple, LogicalFeature, Key, StructuralFeature
@@ -23,15 +23,17 @@ Reference.refsTo.eType = EntityType
 Reference.isFeaturedBy.eType = SchemaType
 Aggregate.aggregates.eType = SchemaType
 SchemaType.parents.eType = SchemaType
-SchemaType.features.eType = Feature
 PMap.keyType.eType = PrimitiveType
 PMap.valueType.eType = DataType
 PSet.elementType.eType = DataType
 PTuple.elements.eType = DataType
+Feature.owner.eType = SchemaType
 Attribute.key.eType = Key
 Attribute.references.eType = Reference
 Reference.attributes.eType = Attribute
 Reference.attributes.eOpposite = Attribute.references
+SchemaType.features.eType = Feature
+SchemaType.features.eOpposite = Feature.owner
 Key.attributes.eType = Attribute
 Key.attributes.eOpposite = Attribute.key
 
@@ -46,4 +48,3 @@ for classif in eClassifiers.values():
 
 for subpack in eSubpackages:
     eClass.eSubpackages.append(subpack.eClass)
-
