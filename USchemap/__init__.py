@@ -47,6 +47,3 @@ for classif in eClassifiers.values():
 for subpack in eSubpackages:
     eClass.eSubpackages.append(subpack.eClass)
 
-register_packages = [USchemap] + eSubpackages
-for pack in register_packages:
-    global_registry[pack.nsURI] = pack
