@@ -1,21 +1,21 @@
 from pyecore.resources import global_registry
-from .USchema-p import getEClassifier, eClassifiers
-from .USchema-p import name, nsURI, nsPrefix, eClass
-from .USchema-p import USchema-p, EntityType, Feature, Attribute, DataType, PList, Reference, Aggregate, PrimitiveType, Null, RelationshipType, SchemaType, PMap, PSet, PTuple, LogicalFeature, Key, StructuralFeature
+from .USchemap import getEClassifier, eClassifiers
+from .USchemap import name, nsURI, nsPrefix, eClass
+from .USchemap import USchemap, EntityType, Feature, Attribute, DataType, PList, Reference, Aggregate, PrimitiveType, Null, RelationshipType, SchemaType, PMap, PSet, PTuple, LogicalFeature, Key, StructuralFeature
 
 
-from . import USchema-p
+from . import USchemap
 
-__all__ = ['USchema-p', 'EntityType', 'Feature', 'Attribute', 'DataType', 'PList', 'Reference', 'Aggregate', 'PrimitiveType',
+__all__ = ['USchemap', 'EntityType', 'Feature', 'Attribute', 'DataType', 'PList', 'Reference', 'Aggregate', 'PrimitiveType',
            'Null', 'RelationshipType', 'SchemaType', 'PMap', 'PSet', 'PTuple', 'LogicalFeature', 'Key', 'StructuralFeature']
 
 eSubpackages = []
 eSuperPackage = None
-USchema-p.eSubpackages = eSubpackages
-USchema-p.eSuperPackage = eSuperPackage
+USchemap.eSubpackages = eSubpackages
+USchemap.eSuperPackage = eSuperPackage
 
-USchema-p.entities.eType = EntityType
-USchema-p.relationships.eType = RelationshipType
+USchemap.entities.eType = EntityType
+USchemap.relationships.eType = RelationshipType
 Attribute.type.eType = DataType
 PList.elementType.eType = DataType
 Reference.opposite.eType = Reference
@@ -47,6 +47,6 @@ for classif in eClassifiers.values():
 for subpack in eSubpackages:
     eClass.eSubpackages.append(subpack.eClass)
 
-register_packages = [USchema-p] + eSubpackages
+register_packages = [USchemap] + eSubpackages
 for pack in register_packages:
     global_registry[pack.nsURI] = pack

@@ -1,12 +1,12 @@
-"""Definition of meta model 'USchema-p'."""
+"""Definition of meta model 'USchemap'."""
 from functools import partial
 import pyecore.ecore as Ecore
 from pyecore.ecore import *
 
 
-name = 'USchema-p'
-nsURI = 'http://www.modelum.es/USchema-p'
-nsPrefix = 'USchema-p'
+name = 'USchemap'
+nsURI = 'http://www.modelum.es/USchemap'
+nsPrefix = 'USchemap'
 
 eClass = EPackage(name=name, nsURI=nsURI, nsPrefix=nsPrefix)
 
@@ -14,7 +14,7 @@ eClassifiers = {}
 getEClassifier = partial(Ecore.getEClassifier, searchspace=eClassifiers)
 
 
-class USchema-p(EObject, metaclass=MetaEClass):
+class USchemap(EObject, metaclass=MetaEClass):
 
     name = EAttribute(eType=EString, unique=True, derived=False, changeable=True)
     entities = EReference(ordered=True, unique=True, containment=True, derived=False, upper=-1)
