@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='uschemap-py',
-    version='0.2',
+    version='0.3',
     packages=find_packages(),
     package_data={'uschemap-py': ['USchemap.ecore', 'USchemap/*']},
     include_package_data=True,

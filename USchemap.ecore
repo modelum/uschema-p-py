@@ -33,7 +33,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" eType="#//Reference"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="refsTo" lowerBound="1"
         eType="#//EntityType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isFeaturedBy" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isFeaturedBy" upperBound="1"
         eType="#//SchemaType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
         eType="#//Attribute" eOpposite="#//Attribute/references"/>

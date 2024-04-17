@@ -227,7 +227,7 @@ class Reference(LogicalFeature):
     lowerBound = EAttribute(eType=EInt, unique=True, derived=False, changeable=True)
     opposite = EReference(ordered=True, unique=True, containment=False, derived=False)
     refsTo = EReference(ordered=True, unique=True, containment=False, derived=False)
-    isFeaturedBy = EReference(ordered=True, unique=True, containment=False, derived=False, upper=-1)
+    isFeaturedBy = EReference(ordered=True, unique=True, containment=False, derived=False)
     attributes = EReference(ordered=True, unique=True, containment=False, derived=False, upper=-1)
 
     def __init__(self, *, opposite=None, refsTo=None, isFeaturedBy=None, attributes=None, upperBound=None, lowerBound=None, **kwargs):
@@ -246,8 +246,8 @@ class Reference(LogicalFeature):
         if refsTo is not None:
             self.refsTo = refsTo
 
-        if isFeaturedBy:
-            self.isFeaturedBy.extend(isFeaturedBy)
+        if isFeaturedBy is not None:
+            self.isFeaturedBy = isFeaturedBy
 
         if attributes:
             self.attributes.extend(attributes)
